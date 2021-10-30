@@ -16,8 +16,12 @@ public class StompConnectedEvent implements ApplicationListener<SessionConnected
     @Getter
     private final AdminService adminService;
 
+    /**
+     * First connect to socket server
+     * @param event
+     */
     @Override
     public void onApplicationEvent(SessionConnectedEvent event) {
-        adminService.addUserName(event.getUser().getName());
+        adminService.addPrincipal(event.getUser());
     }
 }

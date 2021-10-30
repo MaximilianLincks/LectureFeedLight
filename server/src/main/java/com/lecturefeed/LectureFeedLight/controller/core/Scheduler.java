@@ -14,6 +14,6 @@ public class Scheduler {
 
     @Scheduled(fixedRateString = "6000", initialDelayString = "0")
     public void schedulingTask() {
-        adminService.sendMessages();
+        //adminService.sendMessages();
     }
 }

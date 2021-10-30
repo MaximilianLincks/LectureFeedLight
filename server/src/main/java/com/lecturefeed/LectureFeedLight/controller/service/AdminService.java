@@ -4,8 +4,8 @@ import lombok.Data;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -13,18 +13,20 @@ import java.util.List;
 public class AdminService {
     private final SimpMessagingTemplate simpMessagingTemplate;
     private static final String WS_MESSAGE_TRANSFER_DESTINATION = "/admin/msg";
-    private List<String> userNames = new ArrayList<>();
+
+    private List<Principal> principals = new ArrayList<>();
 
     AdminService(SimpMessagingTemplate simpMessagingTemplate) {
         this.simpMessagingTemplate = simpMessagingTemplate;
     }
 
-    public void sendMessages() {
-        simpMessagingTemplate.convertAndSend(WS_MESSAGE_TRANSFER_DESTINATION,
-                "Hallo " + " at " + new Date().toString());
+    public void sendMsgToAll(String msg) {
+        //hier könnte man mit dem pfad des subscriber's arbeiten. z.B /admin/{principalid}/msg
+        //akuell schickt es an alle die WS_MESSAGE_TRANSFER_DESTINATION subscribed haben
+        simpMessagingTemplate.convertAndSend(WS_MESSAGE_TRANSFER_DESTINATION, msg);
     }
 
-    public void addUserName(String username) {
-        userNames.add(username);
+    public void addPrincipal(Principal principal) {
+        principals.add(principal);
     }
 }
