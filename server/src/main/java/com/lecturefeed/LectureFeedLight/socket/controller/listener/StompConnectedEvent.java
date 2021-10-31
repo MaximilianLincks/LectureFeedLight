@@ -1,12 +1,10 @@
-package com.lecturefeed.LectureFeedLight.controller.listener;
+package com.lecturefeed.LectureFeedLight.socket.controller.listener;
 
-import com.lecturefeed.LectureFeedLight.controller.service.AdminService;
+import com.lecturefeed.LectureFeedLight.socket.controller.service.AdminService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
 
 @AllArgsConstructor

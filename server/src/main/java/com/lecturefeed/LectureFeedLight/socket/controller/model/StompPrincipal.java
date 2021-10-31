@@ -1,4 +1,4 @@
-package com.lecturefeed.LectureFeedLight.controller.model;
+package com.lecturefeed.LectureFeedLight.socket.controller.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import * as Stomp from 'stompjs';
-import * as SockJS from 'sockjs-client';
+import {AuthenticationService} from "../../lib/service/authentication/authentication.service";
+import {WebsocketAdminService} from "../lib/websocket/WebsocketAdminService";
+import {Store} from "@ngrx/store";
+import {selectQuestions} from "../../lib/state/question/question.selector";
+import {AppState} from "../state/AppState";
 
 @Component({
   selector: 'app-root',
@@ -10,34 +13,28 @@ import * as SockJS from 'sockjs-client';
 export class AppComponent implements OnInit {
   title = 'lecturefeed-ui';
 
-  private stompClient: any = null;
+  websocketAdminService = new WebsocketAdminService();
+
+  constructor(
+    private readonly authenticationService: AuthenticationService,
+    private readonly store: Store<AppState>
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.connect();
-  }
-
-  public connect() {
-    const socket = new SockJS('http://localhost:8080/ws');
-    this.stompClient = Stomp.over(socket);
-
-
-    this.stompClient.connect({}, (frame: any) => {
-      console.log('Connected: ' + frame);
-
-      this.stompClient.subscribe('/admin/msg', function (msg: string) {
-        console.log("msg:", msg)
-      });
-
-      setTimeout(() => {
-        this.call()
-        setInterval(() =>  this.call(), 3000);
-      }, 2000);
-
+    this.store.select(selectQuestions).subscribe(questions => {
+        console.log(questions);
     });
   }
 
-  call(){
-    this.stompClient.send('/admin/msg',{}, JSON.stringify({name: "testname"}));
+  public connect() {
+    this.authenticationService.getAdminToken().subscribe(req => {
+      this.websocketAdminService.connect(req.token, this.store).then(() => {
+        this.websocketAdminService.sendMsg("test question");
+      });
+    })
   }
 
 

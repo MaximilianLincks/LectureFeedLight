@@ -1,7 +1,6 @@
-package com.lecturefeed.LectureFeedLight.controller.core;
+package com.lecturefeed.LectureFeedLight.socket.controller.core;
 
-import com.lecturefeed.LectureFeedLight.controller.service.AdminService;
-import org.springframework.scheduling.annotation.Scheduled;
+import com.lecturefeed.LectureFeedLight.socket.controller.service.AdminService;
 import org.springframework.stereotype.Component;
 
 @Component

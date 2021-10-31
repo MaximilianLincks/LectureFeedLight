@@ -1,11 +1,13 @@
 package com.lecturefeed.LectureFeedLight.socket;
 
-import com.lecturefeed.LectureFeedLight.controller.core.CustomHandshakeHandler;
+import com.lecturefeed.LectureFeedLight.socket.controller.core.CustomHandshakeHandler;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+
+import java.util.Collections;
 
 @Configuration
 @EnableWebSocketMessageBroker

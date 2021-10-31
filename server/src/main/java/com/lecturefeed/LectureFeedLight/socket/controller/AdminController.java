@@ -1,11 +1,12 @@
-package com.lecturefeed.LectureFeedLight.controller;
+package com.lecturefeed.LectureFeedLight.socket.controller;
 
 
-import com.lecturefeed.LectureFeedLight.controller.service.AdminService;
+import com.lecturefeed.LectureFeedLight.socket.controller.service.AdminService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.security.Principal;
 
@@ -17,10 +18,11 @@ public class AdminController {
     private final AdminService adminService;
 
 
-    @MessageMapping("/admin/msg")
+
+    @MessageMapping("/admin/question/add")
     public void msg(String message, Principal principal) throws Exception {
         Thread.sleep(1000); // simulated delay
-        adminService.sendMsgToAll(message);
+        adminService.sendQuestionToAll(message);
         //return HtmlUtils.htmlEscape(message);
     }
 
