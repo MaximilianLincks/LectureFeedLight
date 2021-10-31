@@ -5,12 +5,8 @@ import java.nio.file.Paths;
 
 public class PathUtils {
 
-
-
     public static Path getUserHomePath(){
         return Paths.get(System.getProperty("user.home"));
     }
-
-
 
 }
