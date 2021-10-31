@@ -12,8 +12,8 @@ public class Scheduler {
         this.adminService = greetingService;
     }
 
-    @Scheduled(fixedRateString = "6000", initialDelayString = "0")
-    public void schedulingTask() {
-        //adminService.sendMessages();
-    }
+//    @Scheduled(fixedRateString = "6000", initialDelayString = "0")
+//    public void schedulingTask() {
+//        //adminService.sendMessages();
+//    }
 }
