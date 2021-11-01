@@ -1,4 +1,4 @@
-import {Question} from "../../lib/model/Question";
+import {Question} from "../model/Question";
 
 export interface AppState {
   questions: Question[];

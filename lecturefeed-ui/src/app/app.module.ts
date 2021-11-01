@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import {StoreModule} from "@ngrx/store";
-import { questionsReducer } from "../../lib/state/question/question.reducer";
+import { questionsReducer } from "./state/question/question.reducer";
 
 @NgModule({
   declarations: [

@@ -1,8 +1,8 @@
-import {subscriptionPoint, WebsocketService} from "../../../lib/websocket/WebsocketService";
+import {subscriptionPoint, WebsocketService} from "./WebsocketService";
 import {Frame} from "stompjs";
 import {Store} from "@ngrx/store";
-import {addQuestion} from "../../../lib/state/question/question.action";
-import {Question} from "../../../lib/model/Question";
+import {addQuestion} from "../state/question/question.action";
+import {Question} from "../model/Question";
 
 export class WebsocketAdminService extends WebsocketService{
 

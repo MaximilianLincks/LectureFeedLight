@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from "../../lib/service/authentication/authentication.service";
-import {WebsocketAdminService} from "../lib/websocket/WebsocketAdminService";
 import {Store} from "@ngrx/store";
-import {selectQuestions} from "../../lib/state/question/question.selector";
-import {AppState} from "../state/AppState";
+import {selectQuestions} from "./state/question/question.selector";
+import {AppState} from "./state/AppState";
+import {WebsocketAdminService} from "./socket/WebsocketAdminService";
+import {AuthenticationService} from "./service/authenticationService/authentication.service";
 
 @Component({
   selector: 'app-root',
