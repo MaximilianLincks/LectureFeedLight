@@ -1,5 +1,4 @@
 import {subscriptionPoint, WebsocketService} from "./WebsocketService";
-import {Frame} from "stompjs";
 import {Store} from "@ngrx/store";
 import {addQuestion} from "../state/question/question.action";
 import {Question} from "../model/Question";
@@ -24,7 +23,7 @@ export class WebsocketAdminService extends WebsocketService{
     this.getStompClient().send("/admin/question/add", {}, msg);
   }
 
-  private onQuestion(question: any){
+  private onQuestion(question: Question){
     this.store?.dispatch(addQuestion({ question }));
   }
 
