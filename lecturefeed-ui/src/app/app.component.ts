@@ -13,10 +13,9 @@ import {AuthenticationService} from "./service/authenticationService/authenticat
 export class AppComponent implements OnInit {
   title = 'lecturefeed-ui';
 
-  websocketAdminService = new WebsocketAdminService();
-
   constructor(
     private readonly authenticationService: AuthenticationService,
+    private readonly websocketAdminService: WebsocketAdminService,
     private readonly store: Store<AppState>
   ) {
 

@@ -2,7 +2,11 @@ import {subscriptionPoint, WebsocketService} from "./WebsocketService";
 import {Store} from "@ngrx/store";
 import {addQuestion} from "../state/question/question.action";
 import {Question} from "../model/Question";
+import { Injectable } from "@angular/core";
 
+@Injectable({
+  providedIn: 'root'
+})
 export class WebsocketAdminService extends WebsocketService{
 
   private subscriptionPoints: subscriptionPoint[] = [
