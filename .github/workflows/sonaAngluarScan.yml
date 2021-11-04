@@ -12,6 +12,8 @@ jobs:
     - uses: actions/checkout@v2
       with:
         projectBaseDir: lecturefeed-ui
+        args: >
+          -Dsonar.projectKey=MaximilianLincks_LectureFeedLight
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
