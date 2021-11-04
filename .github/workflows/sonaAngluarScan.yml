@@ -13,6 +13,7 @@ jobs:
       with:
         projectBaseDir: lecturefeed-ui
         args: >
+          -Dsonar.organization=maximilianlincks
           -Dsonar.projectKey=MaximilianLincks_LectureFeedLight
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
