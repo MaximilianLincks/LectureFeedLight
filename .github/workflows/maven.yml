@@ -21,7 +21,7 @@ jobs:
           with:
             java-version: 17
         - run: mvn -B package --file server/pom.xml
-        - run: ls target
+        - run: ls
         - run: mkdir staging && cp target/*.jar staging
         - uses: actions/upload-artifact@v1
           with:
