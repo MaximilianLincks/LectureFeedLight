@@ -9,7 +9,7 @@ public class AuthenticationController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/")
     public String token() {
-        return "Hallo Maxi & Viktor";
+        return "Hallo Maxi & Viktor & Tom";
     }
 
 }
